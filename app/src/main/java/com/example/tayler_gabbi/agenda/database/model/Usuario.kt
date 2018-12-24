@@ -1,5 +1,8 @@
 package com.example.tayler_gabbi.agenda.database.model
 
+import android.arch.persistence.room.Entity
+
+@Entity
 class Usuario (
         var idUsu : Long? = null,
         var user : String = "",
