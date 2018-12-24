@@ -6,7 +6,7 @@ import com.example.tayler_gabbi.agenda.database.dao.UsuarioDao
 import com.example.tayler_gabbi.agenda.database.model.Usuario
 
 @Database(entities = [Usuario::class],version = 1)
-abstract class DataBase : RoomDatabase() {
+abstract class DataBaseAgenda : RoomDatabase() {
 
     abstract fun usuarioDao() : UsuarioDao
 }

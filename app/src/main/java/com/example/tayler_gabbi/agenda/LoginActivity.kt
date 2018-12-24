@@ -24,7 +24,9 @@ class LoginActivity : AppCompatActivity() {
 
         configurarTextoRegistrate()
 
-        logearse()
+        button_login.setOnClickListener {
+            startActivity<HomeActivity>()
+        }
     }
 
     fun configurarTextoRegistrate(){
