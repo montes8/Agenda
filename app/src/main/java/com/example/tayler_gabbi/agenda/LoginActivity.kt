@@ -11,7 +11,7 @@ import android.text.style.ClickableSpan
 import android.text.style.StyleSpan
 import android.view.View
 import kotlinx.android.synthetic.main.activity_login.*
-import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.*
 
 class LoginActivity : AppCompatActivity() {
 
@@ -21,6 +21,10 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        configurarTextoRegistrate()
+
+        logearse()
     }
 
     fun configurarTextoRegistrate(){
@@ -39,6 +43,29 @@ class LoginActivity : AppCompatActivity() {
 
         tvRegistrate.text=spannableStringBuilder
         tvRegistrate.movementMethod = LinkMovementMethod.getInstance()
+
+    }
+
+    fun logearse(){
+        button_login.setOnClickListener {
+
+            Thread{
+                val usuario= ScheduleApplication.database?.usuarioDao()?.userLogin(edit_nombre_login.text.toString(),edit_password_login.text.toString())
+
+                if (usuario!=null){
+                    handler.post {
+                        //defaultSharedPreferences.edit().putLong("idUsuarioLogeado",usuario.idUsu!!).apply()
+                        toast("Bienvenido ${usuario.user}")
+                        startActivity(intentFor<HomeActivity>().newTask().clearTask())
+                    }
+                }else {
+                    handler.post {
+                        toast("Usuario o Contraseña Incorrectos")
+                    }
+                }
+            }.start()
+
+        }
 
     }
 }
