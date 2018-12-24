@@ -29,8 +29,13 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 
 
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
+    implementation 'com.android.support:design:27.1.1'
+    implementation 'com.android.support:support-v4:27.1.1'
+
+
     //anko
-    implementation 'org.jetbrains.anko:anko:0.10.1'
+    implementation 'org.jetbrains.anko:anko:0.10.5'
     //Recyclerview
     implementation 'com.android.support:recyclerview-v7:27.1.1'
     //Romm
